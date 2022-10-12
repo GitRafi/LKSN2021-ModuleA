@@ -1,0 +1,27 @@
+#Konfigurasi DHCP sabang.net
+
+A. apt install isc-dhcp-server -y
+
+B. nano /etc/default/isc-dhcp-server
+
+INTERFACESv4="ens33" < Interface yang menjadi DHCP Server
+
+C. nano /etc/dhcp/dhcpd.conf
+
+option domain-name "sabang.net";
+option domain-name-servers fw.sabang.net;
+
+subnet 172.16.0.0 netmask 255.255.240.0 {
+  range dynamic-bootp 172.16.0.1 172.16.14.253;
+  option broadcast-address 172.16.15.255;
+  option routers 172.16.15.254;
+host srv1 {
+  hardware ethernet 00:0c:29:da:ec:16;
+  fixed-address 172.16.1.201;
+  }
+
+host srv2 {
+  hardware ethernet 00:0c:29:01:9f:d3;
+  fixed-address 172.16.1.202;
+  }
+}
