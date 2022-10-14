@@ -1,0 +1,16 @@
+;
+; BIND reverse data file for local loopback interface
+;
+$TTL	604800
+@	IN	SOA	sabang.net. root.sabang.net. (
+			      1		; Serial
+			 604800		; Refresh
+			  86400		; Retry
+			2419200		; Expire
+			 604800 )	; Negative Cache TTL
+;
+@	IN	NS	sabang.net.
+201.1	IN	PTR	srv1.sabang.net.
+202.1	IN	PTR	srv2.sabang.net.
+254.15	IN	PTR	fw.sabang.net.
+
