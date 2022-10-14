@@ -229,6 +229,7 @@ ip http authentication local
 ip http secure-server
 !
 ip nat inside source list 1 interface GigabitEthernet3 overload
+ip route 0.0.0.0 0.0.0.0 172.17.1.1
 ip ftp username patah
 ip ftp password KesultananDemak2022
 ip ssh version 2
