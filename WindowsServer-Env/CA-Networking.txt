@@ -1,0 +1,13 @@
+#Konfigurasi Networking CA
+Karna ada subinterface di Router dan tidak ada Vswitch di VMWare Workstation
+Maka CA perlu 2 Interfaces untuk NIC TEAMING
+
+A. Masuk ke NIC TEAMING > Enable
+B. 2 Interface tadi klik kanan lalu Add New Team (nama bebas)
+C. Pada Additional Properties
+	Load Balancing mode pilih Address Hash
+	Tunggu sampai semua int aktif
+D. Tab "Team Interfaces"
+	Klik kanan Properties dan set specify Vlan ke vlan yang digunakan 
+E. Set IP di Network Adaper Biasa
+Done
