@@ -1,0 +1,2 @@
+iptables -t nat -A PREROUTING -p tcp -m tcp --dport 80 -j DNAT --to-destination 172.16.1.201
+iptables -t nat -A PREROUTING -p udp-m udp--dport 53 -j DNAT --to-destination 172.16.1.201
