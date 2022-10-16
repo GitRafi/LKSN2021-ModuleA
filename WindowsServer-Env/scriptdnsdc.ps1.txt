@@ -1,0 +1,8 @@
+for ($i=1;$i -le 25;$i++){
+	if ($i -lt 10){
+		Add-DnsServerResourceRecordCName -Name "user0$i" -HostnameAlias "STORAGE.merauke.net" -ZoneName "merauke.net"
+	} else {
+		
+		Add-DnsServerResourceRecordCName -Name "user$i" -HostnameAlias "STORAGE.merauke.net" -ZoneName "merauke.net"
+	}
+}
