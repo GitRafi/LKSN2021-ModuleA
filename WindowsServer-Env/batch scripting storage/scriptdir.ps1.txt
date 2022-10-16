@@ -1,0 +1,8 @@
+#membuat 25 folder root
+for ($angka=1;$angka -le 25;$angka++){
+	if ($angka -lt 10){
+		md C:\www\users\0$angka
+	} else {
+		md C:\www\users\$angka
+	}
+}

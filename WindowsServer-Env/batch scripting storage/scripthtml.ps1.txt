@@ -1,0 +1,8 @@
+#membuat index semua user 01-25
+for ($angka=1;$angka -le 25;$angka++){
+	if ($angka -lt 10){
+		echo "<html>`n<body>`n<h1>Users Page</h1>`n<br>`nThis is the default page for users 0$angka website`n</body>`n</html>">C:\www\users\0$angka\users.html
+	} else {
+		echo "<html>`n<body>`n<h1>Users Page</h1>`n<br>`nThis is the default page for users $angka website`n</body>`n</html>">C:\www\users\$angka\users.html
+	}
+}
