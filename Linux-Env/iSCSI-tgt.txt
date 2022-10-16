@@ -1,0 +1,21 @@
+#konfigurasi iSCSI-Targer
+
+apt install tgt lvm2 -y
+
+pvcreate /dev/sd{a,b,c}
+
+vgcreate srv1_vg /dev/sd{a,b,c}
+
+lvcreate -l 100%FREE -n srv1 srv1_vg
+
+#openfolder /etc/tgt/conf.d/srv1.conf
+<target iqn.2022-10.net.sabang:srv1>
+	backing-store /dev/mapper/srv1_vg-srv1
+	initiator-address 30.9.65.10
+	initiator-address 172.16.15.254
+	initiator-address 172.17.1.1
+	incominguser patah smkn2yogyakarta
+</target>
+
+#cek dengan
+tgtadm --mode target --op show
