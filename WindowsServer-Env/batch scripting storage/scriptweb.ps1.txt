@@ -2,9 +2,9 @@
 for ($angka=1;$angka -le 25;$angka++){
 	if ($angka -lt 10){
 		New-Website -name "user0$angka.merauke.net" -IPAddress "*" -Port 80 -HostHeader "user0$angka.merauke.net" -PhysicalPath "C:\www\users\0$angka\"
-		New-WebBinding -name "user0$angka.merauke.net" -Port 443 -Protocol https
+		New-WebBinding -name "user0$angka.merauke.net" -HostHeader "user0$angka.merauke.net" -Port 443 -Protocol https
 	} else {
 		New-Website -name "user$angka.merauke.net" -IPAddress "*" -Port 80 -HostHeader "user$angka.merauke.net" -PhysicalPath "C:\www\users\$angka\"
-		New-WebBinding -name "user$angka.merauke.net" -Port 443 -Protocol https
+		New-WebBinding -name "user$angka.merauke.net" -HostHeader "user$angka.merauke.net" -Port 443 -Protocol https
 	}
 }
