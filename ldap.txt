@@ -37,3 +37,25 @@ objectClass: top
 objectClass: posixGroup
 
 ldapadd -cxWD "cn=admin,dc=ldap,dc=itnsa,dc=id" -f group.ldif
+
+#Adduser
+dn: uid=vpnuser1,cn=vpn,ou=internal,dc=ldap,dc=itnsa,dc=id
+uid: vpnuser1
+cn: vpnuser1
+sn: vpnuser1
+objectClass: person
+objectClass: organizationalPerson
+objectClass: inetOrgPerson
+objectClass: posixAccount
+objectClass: top
+objectClass: shadowAccount
+userPassword: {crypt}x
+shadowMin: 0
+shadowMax: 99999
+homeDirectory: /home/vpnuser1
+loginshell: /bin/bash
+uidNumber: 1
+gidNumber:1
+
+ldapadd -cxWD "cn=admin,dc=ldap,dc=itnsa,dc=id" -f adduser.ldif
+ldappasswd -s Skills39 -WD "cn=admin,dc=ldap,dc=itnsa,dc=id" -x "uid=vpnuser1,cn=admin,dc=ldap,dc=itnsa,dc=id""
