@@ -1,0 +1,39 @@
+LDAP Configuration
+
+#Make Admin users
+dn: cn=admin,dc=ldap,dc=itnsa,dc=id
+objectClass: simpleSecurityObject
+objectClass: organizationRole
+cn: admin
+userPassword: {crypt}x
+description: LDAP Administrator
+
+ldapadd -cxWD "cn=admin,dc=ldap,dc=itnsa,dc=id" -f admin.ldif
+ldappasswd -s Skills39 -WD "cn=admin,dc=ldap,dc=itnsa,dc=id" -x "cn=admin,dc=ldap,dc=itnsa,dc=id"
+
+#Make Ou
+dn: ou=vpn,dc=ldap,dc=itnsa,dc=id
+objectClass: organizationalUnit
+ou: vpn
+
+dn: ou=mon,dc=ldap,dc=itnsa,dc=id
+objectClass: organizationalUnit
+ou: mon
+
+ldapadd -cxWD "cn=admin,dc=ldap,dc=itnsa,dc=id" -f ou.ldif
+
+#Group VPN
+dc: cn=vpngroup,ou=vpn,dc=ldap,dc=itnsa,dc=id
+cn: vpngroup
+gidNumber: 1000
+objectClass: top
+objectClass: posixGroup
+
+#Group Monitoring
+dc: cn=mongroup,ou=vpn,dc=ldap,dc=itnsa,dc=id
+cn: mongroup
+gidNumber: 2000
+objectClass: top
+objectClass: posixGroup
+
+ldapadd -cxWD "cn=admin,dc=ldap,dc=itnsa,dc=id" -f group.ldif
